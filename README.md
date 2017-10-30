@@ -6,7 +6,7 @@
 - `$npm run dev`
 - open the browser and goto http://localhost:8080/
 
-# Tutorial Part I - Construct Redux
+# Tutorial - Construct your react-redux
 Before Strat, see how Redux work
 ![redux flow](https://noootown.gitbooks.io/deeperience-react-native-boilerplate/content/images/flux.png)
 
