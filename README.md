@@ -7,6 +7,8 @@
 - open the browser and goto http://localhost:8080/
 
 # Tutorial Part I - Construct Redux
+Before Strat, see how Redux work
+![redux flow](https://noootown.gitbooks.io/deeperience-react-native-boilerplate/content/images/flux.png)
 
 ## Action
 The ```Action``` is a pure function that just desrcibe an action happend
@@ -106,11 +108,30 @@ ReactDOM.render(
 )
 ```
 
-You can create ```Store``` with mulit ```Reducer```, just use ```combineReducers()```, see below
+You can create ```Store``` with mulit ```Reducer```, just use ```combineReducers()```
 
-# ...
-> waitting for edit tutorial
-- connect()
-- combineReducers()
+## Connect()
+This method provide you to access the store
+```connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])```
+
+we have to write a function to get state(from ```Store```) and map it to the props(for use)
+
+**app/index.jsx**
+```
+...
+
+import { connect } from 'react-redux'
+
+...
+
+function select(state){
+  return { cart:state.goods }
+}
+                     
+export default connect(select)(App)
+```
+
+Now you can use ```this.props.cart``` to get what you save in ```state.goods```
+
 
 
