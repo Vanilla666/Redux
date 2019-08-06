@@ -20,9 +20,10 @@ let reducer_store = createStore(reducer) // store綁定reducer createStore創建
 //為此，Store需要知道Reducer函數
 //做法就是在生成Store的時候，將Reducer傳入createStore方法
 ReactDOM.render(
-    <Provider store={reducer_store}> {/* store屬性 綁定store內容 讓App組件可以使用store */}
+    <Provider store={reducer_store}>
         <App />
     </Provider>
+    //   store屬性 綁定store內容 讓App組件可以使用store
   ,
   document.getElementById('root')
 )
