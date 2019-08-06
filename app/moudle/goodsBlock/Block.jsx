@@ -12,7 +12,7 @@ export default class Block extends React.Component{
         }
         this.addValue=this.addValue.bind(this)
         this.minusValue=this.minusValue.bind(this)
-        this.addtoCart=this.addtoCart.bind(this)
+        this.addtoCart=this.addtoCart.bind(this)　// 綁定事件
     }
 
     addtoCart(){
@@ -58,7 +58,7 @@ export default class Block extends React.Component{
     render() {
       return (
         <div className="card">
-            <img src="" alt="商品圖片"/>
+            <img src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" alt="商品圖片"/>
             <div className="card-body">
                 <h4 className="cord-text">{this.props.title}</h4>
                 <p className="text-secondary">剩餘數量:{this.state.availableVal}</p>
@@ -71,7 +71,7 @@ export default class Block extends React.Component{
                     </span>
                 </div>
                 <br/>
-                <Button className="btn btn-primary" text="加入購物車" action={this.addtoCart}/>
+                <Button className="btn btn-primary" text="加入購物車" action={this.addtoCart}/> {/* view 給 action　動作 */}
             </div>
         </div>
       )
