@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import Button from './component/Button.jsx'
 import GoodList from './moudle/goodsSelected/List.jsx'
 import GoodBlock from './moudle/goodsBlock/Block.jsx'
+import Add from './component/Add.jsx'
+import Sub from './component/Sub.jsx'
+
 
 import { addToCart,removeFromCart,addNumber,subNumber } from './moudle/goodsBlock/action'
 
@@ -15,7 +18,8 @@ class App extends React.Component{
     }
   }
 
-  sub = () => { // 減法
+  sub = (k) => { // 減法
+    console.log('k',k);
     // const {dispatch}=this.props　//解構
 
     // this.state.number;
@@ -26,12 +30,13 @@ class App extends React.Component{
     this.props.dispatch(subNumber(this.state.number));
   }
 
-  add = () => { // 加法
+  add = (k) => { // 加法 從子組件傳入的參數
+    console.log('k',k);
   //   this.setState({
   //     number:this.state.number+1
   //  });
     // console.log('+++',this.state.number);
-    this.props.dispatch(addNumber(this.state.number));
+    this.props.dispatch(addNumber(k));
   }
 
   render() {
@@ -40,9 +45,9 @@ class App extends React.Component{
     // console.log(`印出　props: ${JSON.stringify(this.props)} `);　//印出　props
     return (
       <div className="container">
-        <button onClick={sub}> - </button>
+        <Sub number={this.state.number} onSubClick={this.sub}/>
           {ss}
-        <button onClick={add} > + </button>
+        <Add number={this.state.number} onAddClick={this.add}/>
 
         <div className="row">
           <div className="col-4">
@@ -53,7 +58,7 @@ class App extends React.Component{
           </div>
           <div className="col">
             <GoodBlock title="衛生紙" context="五月花超柔" availableVal='5'
-              onAddClick={(good,val)=>dispatch(addToCart(good,val))}/>
+              onAddClick={(good,val)=>dispatch(addToCart(good,val))}/> {/* (good,val)接收數量參數  */}
             <GoodBlock title="黑人牙膏" context="特價中" availableVal='15'
               onAddClick={(good,val)=>dispatch(addToCart(good,val))}/>
           </div>

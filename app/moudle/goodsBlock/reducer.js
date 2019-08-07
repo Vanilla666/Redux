@@ -11,18 +11,8 @@ const initSta = { //reducer 處理好後放入  store
 };
 
 var reducer = function(state=initSta, action){　// state初始值是 initSta設定的 action是從Action拿過來的
-    console.log('userReducer was called with state', state, 'and action', action)
+    // console.log('userReducer was called with state', state, 'and action', action)
 
-    
-    // switch(action.type){
-    //     case GB_ADD_TO_CART :
-    //         return {
-    //             ...state,
-    //             good:action.good
-    //         }
-    //     default:
-    //         return state;
-    // }
     // state是上面的物件(initSta)
     switch(action.type){
         case GB_ADD_TO_CART :

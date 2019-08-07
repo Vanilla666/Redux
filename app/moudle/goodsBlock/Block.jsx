@@ -20,9 +20,9 @@ export default class Block extends React.Component{
         let ava=this.state.availableVal
         ava=ava-val
         if(this.state.value>0){
-            let goodName=this.props.title
-            let takeVal=this.state.value
-            this.props.onAddClick(goodName,takeVal)
+            let goodName=this.props.title //接收外面title名子
+            let takeVal=this.state.value //內部組件變數
+            this.props.onAddClick(goodName,takeVal)//傳出事件給父組件
         }
 
         this.setState({
