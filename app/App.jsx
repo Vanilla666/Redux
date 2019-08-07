@@ -18,7 +18,7 @@ class App extends React.Component{
     }
   }
 
-  sub = (k) => { // 減法
+  sub = (k) => { // 減法 從子組件傳入的參數
     console.log('k',k);
     // const {dispatch}=this.props　//解構
 
@@ -27,7 +27,7 @@ class App extends React.Component{
   //     number:this.state.number-1
   //  });
     // console.log('---',this.state.number);
-    this.props.dispatch(subNumber(this.state.number));
+    this.props.dispatch(subNumber(k));
   }
 
   add = (k) => { // 加法 從子組件傳入的參數
