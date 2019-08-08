@@ -19,9 +19,8 @@ export function PromiseAPI(){ /*　接收　view 傳送進來的函數及參數 
 
 // export const getVideoDetail = ({id})=>async (dispatch)=>{//打開新介面在拿以前的值
 
-export const GetPromiseAPI = ()=>async (dispatch) => {//打開新介面在拿以前的值
-	
-		// /mgmt/v1/videos/publishing
+export const GetPromiseAPI = () => async (dispatch) => {//打開新介面在拿以前的值
+
         let APIdata = [] ; 
         const res = await Axios.get('http://jsonplaceholder.typicode.com/todos').then(
             // res => console.log('res',res)
@@ -32,17 +31,14 @@ export const GetPromiseAPI = ()=>async (dispatch) => {//打開新介面在拿以
                 console.log('item',item);
                 APIdata.push(item); //裝進陣列堆疊 物件
                 // console.log('iteasdasdasm',data);
-
             }
         })
         console.log('iteasdasdasm',APIdata);
        
 		await dispatch(
-            {type: GET_API_PROMISE, data: APIdata} //給到reducer
+            {type: GET_API_PROMISE, data: APIdata} //把action給到reducer
         );//更新值並且到reducer更新
-		// dispatch(changeDetailDialogStatus());
 		
-	
 };
 
 

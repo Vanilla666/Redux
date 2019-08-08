@@ -47,7 +47,6 @@ class App extends React.Component{
           // APIdata.map( (item,index) => {
           //   console.log('asdasdasd',item);
           // });
-    // console.log( 'APIdata', APIdata );
     const message = APIdata.map( (content,index) => //(當前內容,索引值)
       //   console.log('asdasdasd',item);
     <li  key={index} >
