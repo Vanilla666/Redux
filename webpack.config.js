@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-
+var babelpolyfill = require("babel-polyfill");
 var config = {
     entry: [path.resolve(__dirname, 'app/index.jsx')],
     output: {

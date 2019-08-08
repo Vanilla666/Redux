@@ -1,10 +1,14 @@
-import { GB_ADD_TO_CART,
+import {
+        START_GET_API_PROMISE, //測試promsieAPI抓取資料
+        GET_API_PROMISE,
+        GB_ADD_TO_CART,
         GB_REMOVE_FROM_CART,
         ADD_NUMBER,//加法事件
         SUB_NUMBER,//減法事件
 } from './action.js'　//引入從action
 
-const initSta = { //reducer 處理好後放入  store
+const initSta = { //reducer 處理好後放入  store\
+    getdata:[], //API資料放在陣列
     goods:[],
     idCounter:0,
     number:0
@@ -15,6 +19,16 @@ var reducer = function(state=initSta, action){　// state初始值是 initSta設
 
     // state是上面的物件(initSta)
     switch(action.type){
+
+        case START_GET_API_PROMISE:
+        return{ //改變好後存回store
+            ...state,　//批量復值 展開目前紀錄 此紀錄可被新紀錄覆蓋 
+        }
+        case GET_API_PROMISE:
+        return{ //改變好後存回store
+            ...state,　//批量復值 展開目前紀錄 此紀錄可被新紀錄覆蓋 
+            getdata:action //把陣列(action)給到陣列data 給到view頁面時 x.getdata.data 的形式 先reducer在action
+        }
         case GB_ADD_TO_CART :
             return{ //改變好後存回store
                 ...state,　//批量復值 展開目前紀錄 此紀錄可被新紀錄覆蓋 

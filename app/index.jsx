@@ -7,9 +7,9 @@ import ReactDOM from 'react-dom'
 
 import { applyMiddleware,createStore } from 'redux' //applyMiddleware可以添加應用層
 import { Provider } from 'react-redux'
-import logger from 'redux-logger' //第三方套件 適用於中介層
+import logger from 'redux-logger' //第三方套件 適用於中介層 可以看action前和後的狀態
 import App from './App.jsx'
-
+import thunk from 'redux-thunk';
 import 'jquery'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import reducer from './reducer.js'　　// reducer
 
 let reducer_store = createStore(reducer,
-    applyMiddleware(logger)) //放入中間件
+    applyMiddleware(thunk,logger)) //放入中間件
 // store綁定reducer createStore創建一個store 
 // store.dispatch方法會觸發Reducer的自動執行。  
 //為此，Store需要知道Reducer函數
