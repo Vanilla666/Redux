@@ -30,7 +30,7 @@ export const GetPromiseAPI = ()=>async (dispatch) => {//打開新介面在拿以
         res.data.map( (item, index, array) =>{ //
             if(item.id<20){ //迭代20筆資料
                 console.log('item',item);
-                APIdata.push(item.title); //陣列堆疊
+                APIdata.push(item); //裝進陣列堆疊 物件
                 // console.log('iteasdasdasm',data);
 
             }

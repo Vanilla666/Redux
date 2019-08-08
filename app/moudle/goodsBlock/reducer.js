@@ -27,7 +27,7 @@ var reducer = function(state=initSta, action){　// state初始值是 initSta設
         case GET_API_PROMISE:
         return{ //改變好後存回store
             ...state,　//批量復值 展開目前紀錄 此紀錄可被新紀錄覆蓋 
-            getdata:action //把陣列(action)給到陣列data 給到view頁面時 x.getdata.data 的形式 先reducer在action
+            getdata:action.data //拿物件(action)data 給到view頁面時 x.getdata.data 的形式 先reducer在action
         }
         case GB_ADD_TO_CART :
             return{ //改變好後存回store
