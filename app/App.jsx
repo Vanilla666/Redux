@@ -41,7 +41,7 @@ class App extends React.Component{
           {sub,add} =this;
           // console.log('asdasasdasad',APIerror);
           // console.log('numberss',ss); //從store拿出的值
-          console.log('asdasdas',APIerror);
+          console.log('APIerror:',APIerror);
           // APIdata.map( (item,index) => {
           //   console.log('asdasdasd',item);
           // });
