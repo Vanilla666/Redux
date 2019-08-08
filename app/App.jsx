@@ -22,7 +22,7 @@ class App extends React.Component{
   componentDidMount() { //元件已經存在後掛上
     const { dispatch } = this.props
     // dispatch(PromiseAPI()); // 發出同步 Action
-    dispatch( GetPromiseAPI()); // 發出異步 Action
+    dispatch(GetPromiseAPI()); // 發出異步 Action
 
     // dispatch(createAction(
     //   'GET_API_PROMISE', 
@@ -42,8 +42,10 @@ class App extends React.Component{
   }
 
   render() {
-    const {dispatch,cart,ss,APIdata}=this.props,　//解構
+    const {dispatch,cart,ss,APIdata,APIerror}=this.props,　//解構
           {sub,add} =this;
+          // console.log('asdasasdasad',APIerror);
+          console.log('asdasdas',APIerror);
           // APIdata.map( (item,index) => {
           //   console.log('asdasdasd',item);
           // });
@@ -53,6 +55,8 @@ class App extends React.Component{
        {content.userId} {content.id} {content.title} 
     </li>
     ); 
+
+
     return (
       <div className="container">
         <Sub number={this.state.number} onSubClick={this.sub}/>
@@ -73,8 +77,11 @@ class App extends React.Component{
               onAddClick={(good,val)=>dispatch(addToCart(good,val))}/>
           </div>
           <ul>
-            {message}          
+            { message && message  } {/* T && T */}
+            { APIerror && APIerror } {/* F && F */}
           </ul>
+        
+
           
         </div>
 
@@ -87,8 +94,10 @@ class App extends React.Component{
 function select(x){　//x接收store傳來的值 綁定一個函數 把store拿出來
 //  const {data} = x;
 
-  console.log('從 store 取值出來',x.getdata); //
-  return { cart:x.goods,
+  console.log('從 store 取值出來',x.error); //取store的值
+  return { 
+           APIerror:x.error,
+           cart:x.goods,
            APIdata: x.getdata,//回傳陣列才能map
            ss :x.number //從store讀取number 然後ss會被放入this.props 變成 this.props.ss
         } //現在可以使用 this.props.cart 獲取你在 store .goods 中保存的內容
