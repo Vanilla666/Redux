@@ -13,7 +13,7 @@ const initSta = { //reducer 處理好後放入  store\
     getdata:[], //API資料放在陣列
     goods:[],
     idCounter:0,
-    number:0
+    number:0//計算 +1 or -1
 };
 
 var reducer = function(state=initSta, action){　// state初始值是 initSta設定的 action是從Action拿過來的
@@ -53,12 +53,12 @@ var reducer = function(state=initSta, action){　// state初始值是 initSta設
         case ADD_NUMBER:
         return{
             ...state,//批量復值 展開目前紀錄 此紀錄可被新紀錄覆蓋 
-            number:state.number+1//上面的值+1 上面的物件(number)
+            number:state.number+1//上面的值+1 上面的變數(number)
         }
         case SUB_NUMBER:
         return{
             ...state,
-            number:state.number-1//上面的值-1 
+            number:state.number-1//上面的值-1  上面的變數(number)
         }
         default:
             return state;

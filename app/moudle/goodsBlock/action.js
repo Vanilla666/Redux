@@ -68,21 +68,20 @@ export function removeFromCart(id){
     }
 }
 
-export function addNumber(number){ /*　接收　view 傳送進來的函數及參數 */
-    console.log('addNumber',number);
+export function addNumber(){ /*　接收　view 傳送進來的函數及參數 */
+    console.log('addNumber');
 
     return{
         type:ADD_NUMBER,　// action 類別
-        number:number
+
     }
 }
 
 
-export function subNumber(number){ /*　接收　view 傳送進來的函數及參數 */
-    console.log('subNumber',number);
+export function subNumber(){ /*　接收　view 傳送進來的函數及參數 */
+    console.log('subNumber');
     return{
         type:SUB_NUMBER,　// action 類別
-        number:number //屬性
 
     }
 }

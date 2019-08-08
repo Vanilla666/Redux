@@ -9,11 +9,11 @@ export default class Add extends React.Component{
     }
   }
   addNumber = () => { //加1再傳出去
-      console.log('加1再傳出去',this.state.number);
+      console.log('總共+1次數',this.state.number);
       this.setState({
         number:this.state.number+1
       })
-      this.props.onAddClick(this.state.number);//傳給父組件處理
+      this.props.onAddClick();//傳事件給父組件處理
 
   }
     render() {

@@ -24,27 +24,23 @@ class App extends React.Component{
     // dispatch(PromiseAPI()); // 發出同步 Action
     dispatch(GetPromiseAPI()); // 發出異步 Action
 
-    // dispatch(createAction(
-    //   'GET_API_PROMISE', 
-    //   fetch('http://jsonplaceholder.typicode.com/todos')
-    //     .then(response => response.json())
-    // ));
   }
 
-  sub = (k) => { // 減法 從子組件傳入的參數
-    console.log('k',k);
-    this.props.dispatch(subNumber(k));
+  sub = () => { // 減法 
+    
+    this.props.dispatch(subNumber());//發action
   }
 
-  add = (k) => { // 加法 從子組件傳入的參數
-    console.log('k',k);
-    this.props.dispatch(addNumber(k));
+  add = () => { // 加法 
+
+    this.props.dispatch(addNumber());//發action
   }
 
   render() {
     const {dispatch,cart,ss,APIdata,APIerror}=this.props,　//解構
           {sub,add} =this;
           // console.log('asdasasdasad',APIerror);
+          // console.log('numberss',ss); //從store拿出的值
           console.log('asdasdas',APIerror);
           // APIdata.map( (item,index) => {
           //   console.log('asdasdasd',item);
@@ -61,7 +57,7 @@ class App extends React.Component{
       <div className="container">
         <Sub number={this.state.number} onSubClick={this.sub}/>
           {ss}
-        <Add number={this.state.number} onAddClick={this.add}/>
+        <Add number={this.state.number} onAddClick={this.add}/> {/* 父組件接收事件繼續處理 */}
 
         <div className="row">
           <div className="col-4">
