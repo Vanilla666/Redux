@@ -28,7 +28,6 @@ ReactDOM.render( //   store屬性 綁定store內容 讓App組件可以使用stor
     <Provider store={reducer_store}>
         <HashRouter>
             <Switch>
-                {/* <App/> */}
                 {/* <Route path="/Add" component={Add}/> */}
                 <Route path="/Show" component={Show}/>
                 <Route path="/" component={App}/>

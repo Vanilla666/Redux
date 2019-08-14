@@ -4,11 +4,13 @@ import {
         GET_API_PROMISE,//開始拿API資料
         GB_ADD_TO_CART,
         GB_REMOVE_FROM_CART,
+        TEST,
         ADD_NUMBER,//加法事件
         SUB_NUMBER,//減法事件
 } from './action.js'　//引入從action
 
 const initSta = { //reducer 處理好後放入  store\
+    test:0,
     error:[],
     getdata:[], //API資料放在陣列
     goods:[],
@@ -60,6 +62,12 @@ var reducer = function(state=initSta, action){　// state初始值是 initSta設
             ...state,
             number:state.number-1//上面的值-1  上面的變數(number)
         }
+        // case TEST:
+        // return{
+        //     ...state,
+        //     test:state.test+1//上面的值+1  上面的變數(test)
+        // }
+
         default:
             return state;
     }

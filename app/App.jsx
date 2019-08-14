@@ -9,7 +9,7 @@ import { createAction } from 'redux-actions';
 import { Link } from 'react-router-dom';
 import "babel-polyfill";
 
-import { addToCart,removeFromCart,addNumber,subNumber,PromiseAPI,GetPromiseAPI } from './moudle/goodsBlock/action'
+import { addToCart,removeFromCart,addNumber,subNumber,PromiseAPI,GetPromiseAPI,increaseAction } from './moudle/goodsBlock/action'
 
 class App extends React.Component{
 
@@ -38,11 +38,12 @@ class App extends React.Component{
   }
 
   render() {
-    const {dispatch,cart,ss,APIdata,APIerror}=this.props,　//解構
+    const {dispatch,cart,ss,APIdata,APIerror,value,onIncreaseClick }=this.props,　//解構
           {sub,add} =this;
+          console.log('value',value);
           // console.log('asdasasdasad',APIerror);
           // console.log('numberss',ss); //從store拿出的值
-          console.log('APIerror:',APIerror);
+          // console.log('APIerror:',APIerror);
           // APIdata.map( (item,index) => {
           //   console.log('asdasdasd',item);
           // });
@@ -56,12 +57,13 @@ class App extends React.Component{
 
     return (
       <div className="container">
-      
+      {/* <button onClick={onIncreaseClick}>Increase</button>
+        <span>{value}</span> */}
 
-        <Sub number={this.state.number} onSubClick={this.sub}/>
+        <Sub number={this.state.number} onSubClick={sub}/>
           {ss}
-        <Add number={this.state.number} onAddClick={this.add}/>
-        <button> <Link to="/">home</Link> </button>
+        <Add number={this.state.number} onAddClick={add}/>
+        {/* <button> <Link to="/">home</Link> </button> */}
         <button> <Link to="/Show">Show</Link> </button>
         {/* <button> <Link to="/Add">Add</Link> </button> */}
 
@@ -74,17 +76,15 @@ class App extends React.Component{
           </div>
           <div className="col">
             <GoodBlock title="衛生紙" context="五月花超柔" availableVal='5'
-              onAddClick={(good,val)=>dispatch(addToCart(good,val))}/> {/* (good,val)接收數量參數  */}
+              onAddClick={(good,val)=>dispatch(addToCart(good,val))}/> 
             <GoodBlock title="黑人牙膏" context="特價中" availableVal='15'
               onAddClick={(good,val)=>dispatch(addToCart(good,val))}/>
           </div>
           <ul>
-            { message && message  } {/* T && T */}
-            { APIerror && APIerror } {/* F && F */}
+            { message && message  } 
+            { APIerror && APIerror } 
           </ul>
-
-
-          
+     
         </div>
 
   </div>
@@ -104,6 +104,21 @@ function select(x){　//x接收store傳來的值 綁定一個函數 把store拿�
            ss :x.number //從store讀取number 然後ss會被放入this.props 變成 this.props.ss
         } //現在可以使用 this.props.cart 獲取你在 store .goods 中保存的內容
 }
+
+// function mapStateToProps(state) {
+//   console.log('state', state);
+//   return {
+//     value: state.test
+//   }
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onIncreaseClick: () => dispatch(increaseAction())
+//   }
+// }
+
   //select()映射到porps
 export default connect(select)(App)//store跟組件綁定 store的cart 會丟入this.props
+// export default connect(mapStateToProps,mapDispatchToProps,select)(App)//store跟組件綁定 store的cart 會丟入this.props
 

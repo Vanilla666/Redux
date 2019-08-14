@@ -6,6 +6,7 @@ export const SUB_NUMBER = 'SUB_NUMBER';
 export const START_GET_API_PROMISE = 'START_GET_API_PROMISE';
 export const GET_API_PROMISE = 'GET_API_PROMISE';
 export const FASLE_GET_API_PROMISE = 'FASLE_GET_API_PROMISE';
+export const TEST = 'TEST'; 
 // Promise
 
 export function PromiseAPI(){ /*　接收　view 傳送進來的函數及參數 */
@@ -25,6 +26,12 @@ export function FaslePromiseAPI(res){
     
 }
 
+// export function increaseAction (){
+//     console.log('asd');
+//     return{
+//         type: 'TEST'　
+//     }
+// }
 
 // export const getVideoDetail = ({id})=>async (dispatch)=>{//打開新介面在拿以前的值
 
