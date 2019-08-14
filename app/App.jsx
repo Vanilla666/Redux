@@ -6,6 +6,7 @@ import GoodBlock from './moudle/goodsBlock/Block.jsx';
 import Add from './component/Add.jsx';
 import Sub from './component/Sub.jsx';
 import { createAction } from 'redux-actions';
+import { Link } from 'react-router-dom';
 import "babel-polyfill";
 
 import { addToCart,removeFromCart,addNumber,subNumber,PromiseAPI,GetPromiseAPI } from './moudle/goodsBlock/action'
@@ -55,9 +56,14 @@ class App extends React.Component{
 
     return (
       <div className="container">
+      
+
         <Sub number={this.state.number} onSubClick={this.sub}/>
           {ss}
-        <Add number={this.state.number} onAddClick={this.add}/> {/* 父組件接收事件繼續處理 */}
+        <Add number={this.state.number} onAddClick={this.add}/>
+        <button> <Link to="/">home</Link> </button>
+        <button> <Link to="/Show">Show</Link> </button>
+        {/* <button> <Link to="/Add">Add</Link> </button> */}
 
         <div className="row">
           <div className="col-4">
@@ -76,7 +82,7 @@ class App extends React.Component{
             { message && message  } {/* T && T */}
             { APIerror && APIerror } {/* F && F */}
           </ul>
-        
+
 
           
         </div>

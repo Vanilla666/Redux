@@ -1,11 +1,10 @@
 import React from 'react'
-
+// import { Link } from 'react-router-dom';
 export default class Add extends React.Component{
   constructor(props){
     super(props)
     this.state={
         number:this.props.number, //接收外部變數變成內部變數
-        // availableVal:this.props.availableVal
     }
   }
   addNumber = () => { //加1再傳出去
@@ -19,7 +18,9 @@ export default class Add extends React.Component{
     render() {
         // console.log('this.state.number: ',this.state.number);
       return (
-        <button onClick={this.addNumber} >ADD</button>
+   
+          <button onClick={this.addNumber} >ADD</button>
+       
       )
     }
 }

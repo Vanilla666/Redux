@@ -41,7 +41,7 @@ export const GetPromiseAPI = () => async (dispatch) => {//打開新介面在拿�
             }
         })
         console.log('iteasdasdasm',APIdata);
-       
+        
         await dispatch(
             {type: GET_API_PROMISE, data: APIdata} //把action給到reducer
         );//更新值並且到reducer更新
